@@ -16,6 +16,10 @@ namespace XrnCourse.FormsHello
         public MainPage()
         {
             InitializeComponent();
+
+            var msgService = DependencyService.Get<IMessageService>();
+            lblWelcome.Text = "Hello, " + msgService.GetWelcomeMessage();
+
         }
     }
 }
