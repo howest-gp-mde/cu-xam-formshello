@@ -4,14 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Padding="0, 20, 0, 20"
              x:Class="XrnCourse.FormsHello.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
+    <StackLayout HorizontalOptions="FillAndExpand">
         <Label x:Name="lblWelcome" 
            Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="Center" />
+        <Button x:Name="btnAlertPage" Text="Go to alert page"
+                Clicked="BtnAlertPage_Clicked"></Button>
+        <Button x:Name="btnActionSheet" Text="Show Action Sheet"
+                Clicked="BtnActionSheet_Clicked"></Button>
+        <Button x:Name="btnShowModal" Text="Show modal page"
+                Clicked="BtnShowModal_Clicked"></Button>
     </StackLayout>
-
 </ContentPage>
