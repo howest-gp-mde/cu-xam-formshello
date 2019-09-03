@@ -6,13 +6,18 @@ namespace XrnCourse.FormsHello
 {
     public partial class RandomNumberPage : ContentPage
     {
-        Random rnd = new Random();
+        const string RandomNumberPageTotal = "Random_Number_Page_Total";
+        readonly Random rnd = new Random();
         bool pageVisible = false;
         int total = 0;
 
         public RandomNumberPage()
         {
             InitializeComponent();
+
+            if (Application.Current.Properties.ContainsKey(RandomNumberPageTotal))
+                total = (int)Application.Current.Properties[RandomNumberPageTotal];
+            lblTotal.Text = total.ToString("N0");
         }
 
         protected override void OnAppearing()
@@ -29,6 +34,9 @@ namespace XrnCourse.FormsHello
 
         private void btnClearTotal_Clicked(object sender, EventArgs e)
         {
+            Application.Current.Properties[RandomNumberPageTotal] = null;
+            Application.Current.SavePropertiesAsync();
+
             total = 0;
             lblTotal.Text = "-";
         }
@@ -37,6 +45,10 @@ namespace XrnCourse.FormsHello
             int number = rnd.Next(100);
             Debug.WriteLine($"Last Random Number: {number}");
             total += number;
+
+            Application.Current.Properties[RandomNumberPageTotal] = total;
+            Application.Current.SavePropertiesAsync();
+
             lblTotal.Text = total.ToString("N0");
             lblNumber.Text = number.ToString();
             return pageVisible; //true = repeat
