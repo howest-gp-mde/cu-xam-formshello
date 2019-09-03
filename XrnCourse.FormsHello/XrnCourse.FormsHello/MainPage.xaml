@@ -17,5 +17,7 @@
                 Clicked="BtnActionSheet_Clicked"></Button>
         <Button x:Name="btnShowModal" Text="Show modal page"
                 Clicked="BtnShowModal_Clicked"></Button>
+        <Button x:Name="btnRandomNumber" Text="Random number page"
+                Clicked="BtnRandomNumber_Clicked"></Button>
     </StackLayout>
 </ContentPage>
