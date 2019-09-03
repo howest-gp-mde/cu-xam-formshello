@@ -63,5 +63,12 @@ namespace XrnCourse.FormsHello
             var modalPage = new ModalPage();
             await Navigation.PushModalAsync(modalPage, true);
         }
+
+        private async void BtnRandomNumber_Clicked(object sender, EventArgs e)
+        {
+            //display RandomNumberPage
+            var modalPage = new RandomNumberPage();
+            await Navigation.PushAsync(modalPage, true);
+        }
     }
 }
